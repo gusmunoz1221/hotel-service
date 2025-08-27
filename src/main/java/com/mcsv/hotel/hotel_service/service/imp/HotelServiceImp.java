@@ -26,6 +26,7 @@ public class HotelServiceImp implements HotelService {
     public HotelDtoResponse saveHotel(HotelDtoRequest hotelDtoRequest) {
 
         HotelEntity hotel = hotelMapper.hotelDtoToHotelEntity(hotelDtoRequest);
+        hotelRepository.save(hotel);
         return hotelMapper.hotelEntityToHotelDto(hotel);
     }
 

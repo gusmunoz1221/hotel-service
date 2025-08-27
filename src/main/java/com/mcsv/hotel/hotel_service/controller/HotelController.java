@@ -6,6 +6,7 @@ import com.mcsv.hotel.hotel_service.service.HotelService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class HotelController {
     }
 
     @PostMapping
-    public ResponseEntity<HotelDtoResponse> saveHotel(@Valid @RequestBody HotelDtoRequest hotelDtoRequest){
+    public ResponseEntity<HotelDtoResponse> saveHotel(@Valid @Validated @RequestBody HotelDtoRequest hotelDtoRequest){
         HotelDtoResponse hotel = hotelService.saveHotel(hotelDtoRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(hotel);
     }

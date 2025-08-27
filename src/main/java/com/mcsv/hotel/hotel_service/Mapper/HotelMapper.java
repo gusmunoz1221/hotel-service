@@ -11,7 +11,8 @@ public class HotelMapper {
     public HotelEntity hotelDtoToHotelEntity(HotelDtoRequest hotelDtoRequest){
         return HotelEntity.builder()
                 .name(hotelDtoRequest.getName())
-                .ubication(hotelDtoRequest.getInformation())
+                .ubication(hotelDtoRequest.getUbication())
+                .information(hotelDtoRequest.getInformation())
                 .build();
     }
     public HotelDtoResponse hotelEntityToHotelDto(HotelEntity hotelEntity){
